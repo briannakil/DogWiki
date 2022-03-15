@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ranks>
+	<rank>
+		<rankNum>1</rankNum>
+		<name>Retrievers (Labrador)</name>
+		<image>4.jpg</image>
+	</rank>
+    <rank>
+		<rankNum>2</rankNum>
+		<name>French Bulldogs</name>
+		<image>5.jpg</image>
+	</rank>
+    <rank>
+		<rankNum>3</rankNum>
+		<name>German Shepherd Dogs</name>
+		<image>6.jpg</image>
+	</rank>
+    <rank>
+		<rankNum>4</rankNum>
+		<name>Retrievers (Golden)</name>
+		<image>7.jpg</image>
+	</rank>
+    <rank>
+		<rankNum>5</rankNum>
+		<name>Bulldogs</name>
+		<image>8.jpg</image>
+	</rank>
+    <rank>
+		<rankNum>6</rankNum>
+		<name>Poodles</name>
+		<image>9.jpg</image>
+	</rank>
+    <rank>
+		<rankNum>7</rankNum>
+		<name>Beagles</name>
+		<image>10.jpg</image>
+	</rank>
+</ranks>

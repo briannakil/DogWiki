@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Project 1</title>
+<link rel="stylesheet" type="text/css" href="project1.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gideon+Roman&display=swap" rel="stylesheet">
+<style type="text/css">
+    #image-data {
+        width: 400px;
+        height: 300px;
+        border: 5px solid #faf1cd;
+        margin: 20px auto 20px auto;
+        border-radius: 10px;
+    }
+
+    #img {
+        border-radius: 10px;
+    }
+</style>
+<script>
+    var start=1;
+    function setTime(){
+        setInterval(imageShow, 2000);
+    }
+    function imageShow(){
+        var imageData;
+        if (start==1){
+            imageData = "tae_1.JPG";
+        }
+        else if (start==2){
+            imageData = "tae_2.jpg";
+        }
+        else if (start==3){
+            imageData = "tae_3.jpg";
+        }
+        else if (start==4){
+            imageData = "tae_4.jpg";
+        }
+        else if (start==5){
+            imageData = "tae_5.jpg";
+        }
+        else if (start==6){
+            imageData = "tae_6.jpg";
+        }
+        else if (start==7){
+            imageData = "tae_7.jpg";
+        }
+        else {
+            start=1;
+        }
+        document.getElementById("data").src=""+imageData;
+        start++;
+    }
+    function stop(){
+        window.clearInterval(setTime);
+    }
+
+    window.addEventListener("load", setTime(), false);
+</script>
+<script>
+//make it global variable
+var request = new XMLHttpRequest();
+
+// this function calls id, fetch, and set the event listener with click and open text file. 
+function register(){
+  document.getElementById("fetch").addEventListener("click", function(){retrieveAge("age.txt");}, false);
+}
+
+// this function retrieves age text file and changes ready state as stateChange function
+function retrieveAge(url){
+  if (request){
+    request.addEventListener("readystatechange",  stateChange, false);
+    request.open('GET', url, true);
+    request.send(null);
+  }
+}
+// this function displays the response 
+function stateChange(){
+  if (request.readyState == 4  && request.status == 200){
+    document.getElementById("answer").innerHTML = request.responseText;
+  }
+}
+window.addEventListener("load", register, false);
+</script>
+</head>
+<body>
+<div id="wrapper">
+	<a id="top"></a>
+	<div id="header">
+		<h1>Canis Lupus Familiaris(Dog)</h1>
+	</div>
+	<div id="nav">
+		<ul>
+			<li><a href = "index.html">Home</a></li>
+			<li><a href = "facts.html">Facts</a></li>
+			<li><a href = "breeds.html">Breeds</a></li>
+			<li><a href = "thingsToKnow.html">Things to Know</a></li>
+            <li><a href = "gallery.html">Gallery</a></li>
+			<li><a href = "references.html">References</a></li>
+		</ul>
+	</div>
+	<div id="content">
+		<div id="image-data">
+            <img src="tae_1.JPG" id="data" width="400" height="300" alt="Taeyang">
+        </div>
+        <button onclick="stop()">Stop the transition</button>
+
+        <h1>His name is Taeyang. Now, guess his age!</h1>
+		<form>
+		<label>
+			<input type="button" name="fetch" id="fetch" value="Fetch Answer" />
+		</label>
+		</form>
+        <h1 id="answer"></h1>
+
+	</div>
+	<div id="footer">
+		<a href="#top">Back to top</a>
+		<p>
+			This website is developed as an educational project. Certain materials are included under the fair use exemption of the U.S. Copyright Law and have been prepared according to the multimedia fair use guidelines and are restricted from further use.
+		</p>
+		<p>
+			<a href="project1.css" target="_blank">CSS can be found here!</a>
+		</p>
+	</div>
+</div>
+
+
+
+</body>
+</html>

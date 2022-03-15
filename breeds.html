@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:spry="http://ns.adobe.com/spry">
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Project 1</title>
+<link rel="stylesheet" type="text/css" href="project1.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gideon+Roman&display=swap" rel="stylesheet">
+<script src="SpryAssets/SpryData.js" type="text/javascript"></script>
+<script src="SpryAssets/xpath.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+	//calls xml file and set it as dsRanks
+	var dsRanks = new Spry.Data.XMLDataSet("breedsList.xml", "ranks/rank");
+
+	//mOver function uses e and with if function, background color is set to d0f2c4 when mouse is on the id=mouse
+	function mOver(e){
+		if (e.target.getAttribute("id")=="mouse"){
+        e.target.setAttribute("style", "background-color: #d0f2c4");
+    }
+	}
+	//mOut function uses e and with if function, background color is set to white when mouse leases the id=mouse
+	function mOut(e){
+		if (e.target.getAttribute("id")=="mouse"){
+        e.target.setAttribute("style", "background-color: white");
+    }
+	}
+	//these lines actually does event with mouseover and mouseout events. Each calls function, mOver and mOut. 
+	document.addEventListener("mouseover", mOver, false);
+	document.addEventListener("mouseout", mOut, false);
+</script>
+</head>
+<body>
+<div id="wrapper">
+	<a id="top"></a>
+	<div id="header">
+		<h1>Canis Lupus Familiaris(Dog)</h1>
+	</div>
+	<div id="nav">
+		<ul>
+			<li><a href = "index.html">Home</a></li>
+			<li><a href = "facts.html">Facts</a></li>
+			<li><a href = "breeds.html">Breeds</a></li>
+			<li><a href = "thingsToKnow.html">Things to Know</a></li>
+			<li><a href = "gallery.html">Gallery</a></li>
+			<li><a href = "references.html">References</a></li>
+		</ul>
+	</div>
+	<div id="content">
+		<h1 id="mouse">2020 Most Popular Dog Breeds <a href ="https://www.akc.org/expert-advice/dog-breeds/the-most-popular-dog-breeds-of-2020/" target="_blank">Rankings</a></h1>
+		<div id="content1"><div spry:region = "dsRanks">
+		<table id="ranks">
+			<tbody>
+			<tr>
+				<th>Rank</th>
+				<th>Breed Name</th>
+				<th>Photo</th>
+			</tr>
+			<tr spry:repeat="dsRanks">
+				<td>{rankNum}</td>
+				<td>{name}</td>
+				<td><img src="{image}" alt="Dog image" width="300" height="200" /></td>
+			</tr>
+			</tbody>
+		</table>
+		</div>
+		</div>
+	</div>
+	<div id="footer">
+		<a href="#top">Back to top</a>
+		<p>
+			This website is developed as an educational project. Certain materials are included under the fair use exemption of the U.S. Copyright Law and have been prepared according to the multimedia fair use guidelines and are restricted from further use.
+		</p>
+		<p>
+			<a href="project1.css" target="_blank">CSS can be found here!</a>
+		</p>
+	</div>
+</div>
+
+
+
+</body>
+</html>

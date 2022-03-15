@@ -1,0 +1,181 @@
+body {
+    margin: 0;
+    
+}
+
+#header {
+	background-color: #a9e096;
+	padding: 20px !important;
+	text-align: center;
+	color: white;
+	font-size: 40px !important;
+	font-family: 'Gideon Roman', cursive;
+}
+h2 {
+	font-family: 'Gideon Roman', cursive;
+}
+#header h1 {
+	text-shadow: 2px 2px #609e5a;
+
+}
+
+#content .ui-widget label{
+	padding: 30px;
+	font-family: 'Gideon Roman', cursive;
+	font-size: 25px;
+	line-height: 2;
+}
+
+#nav {	
+    vertical-align: top;
+	text-align: center;
+}
+#nav ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #bf9675;
+}
+#nav li{
+	float: left;
+	width: 16.66%;
+}
+
+#nav li a{
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 20px;
+	text-decoration: none;
+	font-family: 'Gideon Roman', cursive;
+	font-weight: bolder;
+	font-size: 20px;
+}
+
+#nav li a:hover{
+	background-color: #edb89f;
+}
+
+#content {
+	background-color: white;
+	
+}
+
+.row {
+	display: flex;
+}
+
+.column {
+	flex: 50%;
+	padding: 0;
+	text-align: center;
+}
+
+.column img {
+	border-radius: 8px;
+	border: 3px solid #a9e096;
+	padding: 3px;
+	text-align: center;
+}
+
+td {
+	text-align: center;
+}
+
+#content h1{
+	margin: 0;
+	padding: 20px;
+	text-align: center;
+	font-family: 'Gideon Roman', cursive;
+
+}
+
+
+#content p {
+	padding: 20px;
+	font-family: 'Gideon Roman', cursive;
+	font-size: 25px;
+	line-height: 1.6;
+}
+
+#content p label {
+	padding: 10px;
+	font-family: 'Gideon Roman', cursive;
+	font-size: 25px;
+	line-height: 2;
+}
+
+#content ul {
+	padding: 20px;
+	font-family: 'Gideon Roman', cursive;
+	font-size: 15px;
+	line-height: 3;
+}
+
+.column ol {
+	padding: 15px;
+	font-family: 'Gideon Roman', cursive;
+	font-size: 25px;
+	line-height: 1.6;
+	list-style-type: upper-roman;
+}
+
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	padding: 15px;
+	font-family: 'Gideon Roman', cursive;
+	font-size: 25px;
+  }
+  
+table#ranks {
+	margin-left: auto; 
+	margin-right: auto;
+	width: 80%;
+	border-collapse: collapse;
+	background-color: #faf1cd;
+	table-layout: auto;
+  }
+
+a:link {
+	color: #51ad50;
+}
+
+a:visited {
+	color: #e08f55;
+}
+
+a:hover {
+	color: #1c6118;
+}
+
+a:active {
+	color: #72acdb;
+}
+
+legend {
+	font-family: 'Gideon Roman', cursive;
+	font-size: 30px; 
+	font-weight: bolder;
+}
+
+#gameDescription {
+	text-align: center;
+	font-size: 10px;
+}
+
+#footer {
+	background-color: #a9e096;
+	padding: 20px;
+	text-align: left;
+	color: black;
+	font-size: 15px;
+	font-style: italic;
+	font-family: 'Gideon Roman', cursive;
+}
+
+ .offset-0 {    
+      padding-left: 0;    
+      padding-right: 0;
+}

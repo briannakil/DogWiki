@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+
+<title>Project 1</title>
+<link rel="stylesheet" type="text/css" href="project1.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Gideon+Roman&display=swap" rel="stylesheet"/>
+
+<script>
+	//setting the variable child so I can use it in the function 
+	var child;
+	//function start calls the button ID "openW" and opens the window using addEventLister
+	//when it's clicked
+	function startOpen(){
+		document.getElementById("openW").addEventListener("click", open_w, false);
+	}
+	//open_w function contains the child website that opens up the URL of American Kennel Club
+	function open_w(){
+		child = window.open("https://www.akc.org/", "", "toolbar, menubar, height=700, width=500");
+	}
+	//When page is loaded, start function is called. 
+	window.addEventListener("load", startOpen, false);
+
+	////////////////////////////////////////////////////////////////////////////////////////////////
+
+	function myFunction() {
+	// Gets input value
+	var name = document.getElementById("myInput").value;
+	// Saves data to retrieve later
+	localStorage.setItem("userName", name);
+	// Updates HTML
+	updateHTML();
+	}
+
+	function getName() {
+  	return localStorage.getItem("userName");
+	}
+
+	//this updates name which is retrieved from the previous function. 
+	//then it gets greeting id and set to a welcome message including the name 
+	//Then it stores name in the storedName id
+	function updateHTML() {
+	var name = getName();
+	document.getElementById("greeting").innerHTML = "Hello, " + name + "! Welcome to my website!" + "<br>" + "Thank you again for using this website." + "<br>" + "I really hope you get to learn more about dogs!";
+	document.getElementById("storedName").innerHTML = name;
+	}
+
+	//function clears name input
+	function clearName() {
+		window.localStorage.clear();
+		document.getElementById("storedName").innerHTML = "";
+	}
+
+	//declare names which will hold name array.
+	//loadNames function will find out if the user is here for the first time
+	//then print the welcome message if it's the first time visiting 
+	//
+	var names;
+	function loadNames(){
+		if (!sessionStorage.getItem("herePreviously")){
+			sessionStorage.setItem("herePreviously", "true");
+			document.getElementById("welcomeMessage").innerHTML = "First time visitor! Thank you for trying out my website!";
+		}
+		
+		var length = localStorage.length;
+		names = [];
+
+		for (var i = 0; i < length; ++i){
+			names[i] = localStorage.key(i);
+		}
+		
+		names.sort(); //sort the keys
+	}
+
+	//tried to save myInput value to username key, but didn't work.. 
+	//I'll leave it here as a reference for later
+	function saveNames(){
+		var myInput = document.getElementById("myInput");
+		localStorage.setItem("username", myInput.value);
+		myInput.value = "";
+		loadNames();
+	}
+
+	//start function generates loadNames function
+	function startLoadNames(){
+		loadNames();
+	}
+	
+	window.addEventListener("load", startLoadNames, false);
+
+	////////////////////////////////////////////////////////////////
+	//Changing background color of navigation bar and h1(title of the page)
+	//startReplace function retrieves ID replace and when it's clicked, replaceBackgroundColor function is called
+	function startReplace(){
+		document.getElementById("replace").addEventListener("click", replaceBackgroundColor, false);
+	}
+	//this function sets currentHeader as header from id, then sets attribute
+	function replaceBackgroundColor(){
+		var currentHeader = document.getElementById("header");
+		currentHeader.setAttribute("style", "background-color: #f2d994;");
+	}
+	window.addEventListener("load", startReplace, false); 
+
+</script>
+</head>
+<body>
+<a href="#skip">Skip Content</a> 
+<div id="wrapper">
+	<a id="top"></a>
+	<div id="header">
+		<h1>Canis Lupus Familiaris(Dog)</h1>
+	</div>
+	<div id="nav">
+		<ul>
+			<li><a href = "index.html">Home</a></li>
+			<li><a href = "facts.html">Facts</a></li>
+			<li><a href = "breeds.html">Breeds</a></li>
+			<li><a href = "thingsToKnow.html">Things to Know</a></li>
+			<li><a href = "gallery.html">Gallery</a></li>
+			<li><a href = "references.html">References</a></li>
+		</ul>
+	</div>
+
+	<div id="content">
+		<a name="skip"></a>
+		<h1>Let's learn about DOGs!</h1>
+		
+		<div class="row">
+			<div class="column">
+				<div class="row">
+		<div class="col-md-12 offset-0">
+			<img alt="A poodle standing" src="1.jpg" width="500" height="700" >
+			<p style="font-size: 15px; padding: 0;">(This is a picture of my dog! His name is Taeyang, means sun in Korean)</p>
+			</div></div></div>
+			<div class="column">
+				<div class="row">
+		<div class="col-md-12 offset-0">
+			<form>
+				<input type="button" name="replace" id="replace" value="Change the Theme Color!"> 
+			</form>
+			<p>
+				According to <a href ="https://www.statista.com/statistics/198100/dogs-in-the-united-states-since-2000/" target="_blank">statistics</a>, there are approximately 89.7 million dogs owned in the United States in 2017! Dogs are not only consider as pets, but they are becoming more of our family members. <br><br> <strong>We will discover more about dogs here for our happy journey together!</strong>
+			</p>
+			<!-- Button that opens up the American Kennel Club website -->
+			<form id="form1" name="form1">
+				<input type = "button" name = "openW" id = "openW" value = "Learn More About Doggies!">
+			</form>
+			<br>
+			<h2>Thank you for using our website!</h2>
+				<p id="welcomeMessage"></p>
+				<p>Please Enter your First name!</p>
+				<input id="myInput" type="text" placeholder="">
+				<button onclick="myFunction()">Save</button>
+				<p id="greeting"></p>
+				<h2>Visitor Name:</h2>
+				<div id="searches"></div>
+				<p id="storedName"></p>
+				<button onclick="clearName()">Delete Your Name</button>
+			</div></div></div>
+		</div>
+	</div>
+	<div id="footer">
+		
+		<a href="#top">Back to top</a>
+		<p>
+			This website is developed as an educational project. Certain materials are included under the fair use exemption of the U.S. Copyright Law and have been prepared according to the multimedia fair use guidelines and are restricted from further use.
+		</p>
+		<p>
+			<a href="project1.css" target="_blank">CSS can be found here!</a>
+		</p>
+		
+		<script> 
+			//.lastmodified property shows the date and time that the page 
+			//was last modified. Setting the variable lastModifiedAt
+			//so I can call it using .write method. 
+			var lastModifiedAt=document.lastModified;
+			document.write(lastModifiedAt);
+		</script>
+		
+	</div>
+</div>
+
+
+
+</body>
+</html>

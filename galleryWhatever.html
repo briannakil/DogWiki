@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Project 1</title>
+<link rel="stylesheet" type="text/css" href="project1.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gideon+Roman&display=swap" rel="stylesheet">
+<style type="text/css">
+    #thumbs {
+        width: 192px;
+        height: 370px;
+        padding: 5px;
+        float: left;
+    }
+    #mainimg {
+        width: 289px;
+        padding: 5px;
+        float: left;
+    }
+    #imgCover {
+        height: 373px;
+    }
+    img {
+        border: 1px solid black;
+    }
+</style>
+<script>
+    var interval = null;
+    var speed = 6;
+    var count = 0;
+
+    function run(){
+        count += speed;
+        
+        if(count>=375){
+            window.clearInterval(interval);
+            interval = null;
+        }
+
+        var bigImage = document.getElementById("imgCover");
+        bigImage.setAttribute("style", "width: " + (0.7656 * count + "px;") + "height: " + (count + "px;"));
+    }
+
+    function display(imgfile){
+        if (interval)
+            return;
+
+        var bigImage = document.getElementById("imgCover");
+        bigImage.setAttribute("style", "width: 0px; height: 0px;");
+        bigImage.setAttribute("src", imgfile);
+        bigImage.setAttribute("alt", "larger version of " + imgfile);
+        count = 0;
+        interval = window.setInterval("run()", 10);
+    }
+
+    function start(){
+        document.getElementById("tae_2").addEventListener("click", function() {display("tae_2.jpg");}, false);
+        document.getElementById("tae_3").addEventListener("click", function() {display("tae_3.jpg");}, false);
+        document.getElementById("tae_4").addEventListener("click", function() {display("tae_4.jpg");}, false);
+        document.getElementById("tae_5").addEventListener("click", function() {display("tae_5.jpg");}, false);
+        document.getElementById("tae_6").addEventListener("click", function() {display("tae_6.jpg");}, false);
+        document.getElementById("tae_7").addEventListener("click", function() {display("tae_7.jpg");}, false);
+    }
+</script>
+</head>
+<body>
+<div id="wrapper">
+	<a id="top"></a>
+	<div id="header">
+		<h1>Canis Lupus Familiaris(Dog)</h1>
+	</div>
+	<div id="nav">
+		<ul>
+			<li><a href = "index.html">Home</a></li>
+			<li><a href = "facts.html">Facts About Dogs</a></li>
+			<li><a href = "breeds.html">Breeds</a></li>
+			<li><a href = "thingsToKnow.html">Things to Know</a></li>
+            <li><a href = "gallery.html">Gallery</a></li>
+			<li><a href = "references.html">References</a></li>
+		</ul>
+	</div>
+	<div id="content">
+		<div id="mainimg">
+            <img id="imgCover" src="tae_1.jpg" alt = "Full cover image">
+        </div>
+        <div id="thumbs">
+            <img src="tae_2.jpg" id = "tae_2" alt = "Taeyang">
+            <img src="tae_3.jpg" id = "tae_2" alt = "Taeyang">
+            <img src="tae_4.jpg" id = "tae_2" alt = "Taeyang">
+            <img src="tae_5.jpg" id = "tae_2" alt = "Taeyang">
+            <img src="tae_6.jpg" id = "tae_2" alt = "Taeyang">
+            <img src="tae_7.jpg" id = "tae_2" alt = "Taeyang">
+        </div>
+	</div>
+	<div id="footer">
+		<a href="#top">Back to top</a>
+		<p>
+			This website is developed as an educational project. Certain materials are included under the fair use exemption of the U.S. Copyright Law and have been prepared according to the multimedia fair use guidelines and are restricted from further use.
+		</p>
+		<p>
+			<a href="project1.css" target="_blank">CSS can be found here!</a>
+		</p>
+	</div>
+</div>
+
+
+
+</body>
+</html>

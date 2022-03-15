@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Project 1</title>
+<link rel="stylesheet" type="text/css" href="project1.css">
+<link rel="stylesheet" href = "jquery-ui-custom/jquery-ui.css">
+<link rel="stylesheet" href = "jquery-ui-custom/jquery-ui.structure.css">
+<link rel="stylesheet" href = "jquery-ui-custom/jquery-ui.theme.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gideon+Roman&display=swap" rel="stylesheet">
+<style>
+	.myPicturesContainer {
+		text-align: center;
+	}
+</style>
+
+<script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.js"></script>
+
+
+
+<script type="text/javascript">
+//Array of images that contains 10 images to be selected randomly
+var images = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg", "9.jpg", "10.jpg"];
+//random selection of pictures 
+var random = Math.floor(Math.random() * 10);
+
+//I wanted to make it neat and simply, but I wasn't sure how to make it as one function
+//and make them all work seperately
+//However, these functions get element by id mypictures 1, 2, and 3 and 
+//set the source to images and random number
+function randomImage(){
+	document.getElementById("myPictures").src = images[random];	
+}
+function randomImage2(){
+	document.getElementById("myPictures2").src = images[random];	
+}
+function randomImage3(){
+	document.getElementById("myPictures3").src = images[random];	
+}
+</script>
+</head>
+<body onload = "randomImage(), randomImage2(), randomImage3()">
+<div id="wrapper">
+	<a id="top"></a>
+	<div id="header">
+		<h1>Canis Lupus Familiaris(Dog)</h1>
+	</div>
+	<div id="nav">
+		<ul>
+			<li><a href = "index.html">Home</a></li>
+			<li><a href = "facts.html">Facts</a></li>
+			<li><a href = "breeds.html">Breeds</a></li>
+			<li><a href = "thingsToKnow.html">Things to Know</a></li>
+			<li><a href = "gallery.html">Gallery</a></li>
+			<li><a href = "references.html">References</a></li>
+		</ul>
+	</div>
+	<div id="content">
+		<h1>It's important to know what is the best for your four legged friends!</h1>
+	<!--   This class myPicturesContainer contains three image that retrieves 
+	random image from the javascript function above   -->
+
+		<div class="myPicturesContainer">
+			<img src="#" id = "myPictures" alt ="random image" width="200" height="200">
+			<img src="#" id = "myPictures2" alt ="random image" width="200" height="200">
+			<img src="#" id = "myPictures3" alt ="random image" width="200" height="200">
+		</div>
+		<p>Feel free to send us your questions about your dogs! <br> You love your friends, and I love your friends as well.</p>
+		<form id = "myForm" method = "post" autocomplete = "on">
+		<fieldset>
+		<legend>Submit your info and question here!</legend>
+		<p><label>First Name:
+			<input name = "fname" type="text" size="25">
+			</label>
+		</p>
+		<p>
+			<label>Last Name:
+			<input name = "lname" type="text" size="25">
+			</label>
+		</p>
+		<p><label>E-mail Address:
+		  <input name = "email" type="email" size = "25">
+			</label>
+		</p>
+		<p>Do you own a dog?<br>
+		  <input type = "radio" name = "mail" value="yes">
+			<label>Yes</label><br>
+		  <input type = "radio" name = "mail" value="no">
+			<label>No</label><br>
+			<input type = "radio" name = "mail" value="dontCare">
+			<label>I'm about to!</label>
+		</p>
+		<p><label>What is the weight of your dog?:
+			<input type = "text" id = "weightList"
+				   placeholder = "Select a weight range of your dog" list = "weightRange" />
+			<datalist id = "weightRange">
+				<option value = "1-10lb"></option>
+				<option value = "11-20lb"></option>
+				<option value = "21-30lb"></option>
+				<option value = "31-40lb"></option>
+				<option value = "41-50lb"></option>
+				<option value = "51-60lb"></option>
+				<option value = "61lb~"></option>
+			</datalist>
+			</label>
+		</p>
+		<p><label>What is your current environment? </label><br>
+			<input type="checkbox" id = "ch1" name="checkboxes">
+				<label for="ch1">I own a dog</label><br>
+			<input type="checkbox" id = "ch2" name="checkboxes">
+				<label for="ch2">I own a cat</label><br>
+			<input type="checkbox" id = "ch3" name="checkboxes">
+				<label for="ch3">I own multiple dogs</label><br>
+			<input type="checkbox" id = "ch4" name="checkboxes">
+				<label for="ch4">I own multiple cats</label><br>
+		</p>
+		<p><label>Please ask us any question/concern about your dog! <br>We will reply to your question as soon as possible.<br>
+			<textarea name = "question" rows = "10" cols = "40"></textarea>
+			</label>
+	  	</p>
+	 	<p><label for="rate">How would you rate our site? (between 0 and 50): </label>
+			<input type="range" id = "rate" name="rate" min="0" max="50">
+		</p>
+		
+		<div class="ui-widget">
+			<p>
+			<label>Please select today's date:</label>
+			<input type="text" placeholder="Today's date" id="calendar" />
+			</p>
+		</div>
+		
+		<p>
+			<input type = "submit" name = "submit" value="Submit">
+			<input type = "reset" name = "reset" value = "Clear">
+		</p>
+	</fieldset>
+	</form>
+	<script>
+		$(document).ready(function() {
+			// This function applies animation (slideUp and slideDown) to the class name 'myPicturesContainer'
+			$(".myPicturesContainer").slideUp(1000).slideDown(1000);
+	
+			// This function opens calendar
+			$('#calendar').datepicker({  
+			showOn: "button",
+			numberOfMonths: 1,
+			showAnim: "slideDown"
+		  }); // end datepicker
+		}); // ends ready
+	
+		//validating
+		$("#myForm").validate({
+			//This function sets rules to the form so users can enter correct information/get validated
+			rules: {
+				fname: {
+				required: true,
+				  minlength: 2
+				},
+				lname: {
+				required: true,
+				  minlength: 2
+				},
+				email: {
+				required: true,
+				  eamil: true
+				},
+				checkboxes: {
+				minlength: 2,
+				}
+			}, // ends rules
+			messages: {
+				fname: {
+				required: "Please enter your first name",
+				minlength: "Your first name must consist of at least 2 characters"
+				},
+				lname: {
+				required: "Please enter your last name",
+				minlength: "Your last name must consist of at least 2 characters"
+				},
+				email: {
+				required: "Please enter an email address",
+				eamil: "Please enter a valid email address"
+				},
+				checkboxes: {
+				minlength: "Please select at least two checkboxes",
+				}
+			} // ends messages
+		}) // ends validate
+	</script>
+</div>
+	<div id="footer">
+		<a href="#top">Back to top</a>
+		<p>
+			This website is developed as an educational project. Certain materials are included under the fair use exemption of the U.S. Copyright Law and have been prepared according to the multimedia fair use guidelines and are restricted from further use.
+		</p>
+		<p>
+			<a href="project1.css" target="_blank">CSS can be found here!</a>
+		</p>
+	</div>
+</div>
+</body>
+</html>
